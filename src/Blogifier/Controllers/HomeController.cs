@@ -64,7 +64,7 @@ namespace Blogifier.Controllers
 				model.Blog.Title = term;
 				model.Blog.Description = "";
 				model.Posts = await _postProvider.Search(model.Pager, term, 0, "FP");
-			}	
+			}
 
 			if (model.Pager.ShowOlder) model.Pager.LinkToOlder = $"?page={model.Pager.Older}";
 			if (model.Pager.ShowNewer) model.Pager.LinkToNewer = $"?page={model.Pager.Newer}";
@@ -103,6 +103,8 @@ namespace Blogifier.Controllers
 
 			if (model.Pager.ShowOlder) model.Pager.LinkToOlder = $"?page={model.Pager.Older}";
 			if (model.Pager.ShowNewer) model.Pager.LinkToNewer = $"?page={model.Pager.Newer}";
+
+            ViewData["category"] = category;
 
             string viewPath = $"~/Views/Themes/{model.Blog.Theme}/Category.cshtml";
 

@@ -26,7 +26,7 @@ namespace Blogifier.Core.Providers
                    .GetTypeInfo()
                    .Assembly
                    .GetCustomAttribute<AssemblyInformationalVersionAttribute>()
-                   .InformationalVersion;
+                   ?.InformationalVersion;
 
             model.DatabaseProvider = _db.Database.ProviderName;
 
